@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>IdeatorProject</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;600;700&family=Open+Sans:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    
+  <div id = "wrap">
+    <%= render 'shared/nav' %>
+
+    <div class = "container">
+      <%= yield %>
+    </div>
+
+  </div><!-- wrap -->
+
+  <div class="footer text-center">
+    <p>&copy; TECHBRAIN <%= Date.today.year %> All Rights Reserved</p>
+  </div>
+
+  </body>
+</html>
