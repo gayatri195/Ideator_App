@@ -1,3 +1,4 @@
+<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Add Idea
 </button>
@@ -12,8 +13,21 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
-     <% @ideas.each do |idea| %>
+      <%= simple_form_for Idea.new do |f| %>
+      <div class="modal-body">
+          <%= f.input :description %>
+          <%= f.input :author %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      </div>
+       <% end %>
+    </div>
+  </div>
+</div>
+ <div class="modal-body">
+         <% @ideas.each do |idea| %>
   <div class="card">
     <div class="card-body">
       <blockquote class="blockquote mb-0">
@@ -25,8 +39,10 @@
           <%= link_to 'Revise', edit_idea_path(idea), class: 'btn btn-sm btn-success' %>
     </div>
   </div>
-<% end %>
-
-    </div>
+   <% end %>
   </div>
+ 
+<div class = "text-center">
+  <%= will_paginate @ideas %>
 </div>
+
